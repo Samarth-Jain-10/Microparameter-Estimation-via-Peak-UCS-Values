@@ -8,7 +8,7 @@
 
 ---
 
-##📌 Overview
+## 📌 Overview
 
 Determining soil microparameters for Discrete Element Method (DEM) and advanced constitutive modeling typically demands exhaustive physical laboratory testing and heavy, high-cost iterative simulations. This project introduces an end-to-end computational pipeline designed to cut down major infrastructural computation costs and energy usage.
 
