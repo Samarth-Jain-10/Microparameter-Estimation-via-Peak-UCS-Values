@@ -10,9 +10,9 @@
 
 ## 📌 Overview
 
-Determining soil microparameters for Discrete Element Method (DEM) and advanced constitutive modeling typically demands exhaustive physical laboratory testing and heavy, high-cost iterative simulations. This project introduces an end-to-end computational pipeline designed to cut down major infrastructural computation costs and energy usage.
+Determining the internal microscopic properties of soil (like particle friction and contact stiffness) usually takes a massive amount of time, energy, and expensive supercomputing power. Normally, engineers have to run trial-and-error simulations over and over again just to figure out what is happening at the particle level.
 
-By leveraging a metamodeled **Kriging Response Surface**, **Global Sensitivity Analysis (Sobol & Borgonovo)**, and **Markov Chain Monte Carlo (MCMC) Bayesian Inversion**, this framework directly predicts the **Probability Density Functions (PDFs)** of **15 soil microparameters** using easily observable macroparameters: **Peak Unconfined Compressive Strength ($\text{UCS}_{\text{peak}}$)** and **Shear Modulus ($G$)**.
+This project changes that by introducing a smarter, faster computational shortcut. By combining a machine learning surrogate model with smart sensitivity analysis and Bayesian statistical methods, this framework directly predicts **15 soil microparameters** using just **2 directly observable macroparameters** from standard lab tests: **Peak UCS (Unconfined Compressive Strength)** and **Shear Modulus ($G$)**. Instead of taking days to calculate these values manually, this model gives quick, highly accurate results while drastically cutting down computing costs and energy use.
 
 ---
 
@@ -42,14 +42,7 @@ Finally, we formulated the inverse mapping problem using **Bayesian inversion** 
 4. **Bayesian Inversion & MCMC Sampling:**
    * Inverts the forward surrogate model to construct posterior Probability Density Functions (PDFs) of the 15 microparameters.
    * Fine-tunes candidate parameter weights via MCMC to validate back against the original Kriging Response Surface.
-
----
-
-## 💡 Key Highlights & Impact
-
-* **Cost & Energy Reduction:** Eliminates brute-force manual/numerical trial-and-error, lowering high-performance computing (HPC) power requirements.
-* **Uncertainty Quantification:** Replaces point estimates with full posterior probability distributions to capture soil variability.
-* **Closed-Loop Validation:** Guarantees that predicted microparameter sets reliably reproduce target macro-scale responses.
+     
 
 ## 🗂 Repository Structure
 ```text
