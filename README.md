@@ -1,17 +1,14 @@
-# Rock Strength Modeling & Bayesian Inversion
+# Microparameter Estimation in Computational Geomechanics via Bayesian Inversion
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
-# Microparameter Estimation in Computational Geomechanics via Bayesian Inversion
-
-> **Project Advisor:** Prof. Gaurav Tiwari, Associate Professor, Department of Civil Engineering, IIT Kanpur  
-> **Domain:** Computational Geomechanics, Metamodeling, Uncertainty Quantification (UQ), Bayesian Inference  
+> **Project Advisor:** Prof. Gaurav Tiwari, Associate Professor, Department of Civil Engineering, IIT Kanpur    
 
 ---
 
-## 📌 Overview
+📌 **Overview**
 
 Determining soil microparameters for Discrete Element Method (DEM) and advanced constitutive modeling typically demands exhaustive physical laboratory testing and heavy, high-cost iterative simulations. This project introduces an end-to-end computational pipeline designed to cut down major infrastructural computation costs and energy usage.
 
