@@ -4,12 +4,55 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
-## 📖 Project Overview
-Under the guidance of Prof. Gaurav Tiwari (Associate Professor, Department of Civil Engineering, IIT Kanpur), this project addresses the heavy infrastructural and computational costs associated with manually determining soil microparameters. In computational geomechanics, evaluating micro-level granular behavior through physical testing or exhaustive numerical simulations requires immense time and computational energy. To eliminate these bottlenecks, our primary objective was to engineer a predictive computational framework capable of directly estimating 15 fundamental soil microparameters using readily measurable macroscopic observables—specifically Peak Unconfined Compressive Strength ($\text{UCS}_{\text{peak}}$) and Shear Modulus ($G$).
+# Microparameter Estimation in Computational Geomechanics via Bayesian Inversion
 
-To bypass computationally expensive high-fidelity forward runs during parameter estimation, we first constructed a surrogate metamodel using Kriging (Gaussian Process Regression). By training on a dataset coupling the 15 microparameters with the 2 macroparameters, this Response Surface efficiently approximated the underlying non-linear mechanics of the soil samples. We then isolated which microparameters exerted dominant control over macro-behavior by performing Global Sensitivity Analysis via Sobol and Borgonovo methods. Sobol analysis quantified variance-based primary and interaction effects, while Borgonovo's density-based approach evaluated shifts across full probability distributions, enabling us to pinpoint the critical parameters governing response surface sensitivity.
+> **Project Advisor:** Prof. Gaurav Tiwari, Associate Professor, Department of Civil Engineering, IIT Kanpur  
+> **Domain:** Computational Geomechanics, Metamodeling, Uncertainty Quantification (UQ), Bayesian Inference  
 
-Finally, we formulated the inverse mapping problem using Bayesian inversion powered by Markov Chain Monte Carlo (MCMC) sampling. Instead of yielding single deterministic values, this approach predicted full Probability Density Functions (PDFs) for the microparameters given target macro-values. By iteratively updating likelihood weights and evaluating candidate parameter sets back against the Kriging Response Surface, we ensured that the estimated microparameters robustly validated the target macro-properties. This closed-loop, uncertainty-aware framework drastically cuts computational and material testing costs while maintaining high precision in soil characterization.
+---
+
+## 📌 Overview
+
+Determining soil microparameters for Discrete Element Method (DEM) and advanced constitutive modeling typically demands exhaustive physical laboratory testing and heavy, high-cost iterative simulations. This project introduces an end-to-end computational pipeline designed to cut down major infrastructural computation costs and energy usage.
+
+By leveraging a metamodeled **Kriging Response Surface**, **Global Sensitivity Analysis (Sobol & Borgonovo)**, and **Markov Chain Monte Carlo (MCMC) Bayesian Inversion**, this framework directly predicts the **Probability Density Functions (PDFs)** of **15 soil microparameters** using easily observable macroparameters: **Peak Unconfined Compressive Strength ($\text{UCS}_{\text{peak}}$)** and **Shear Modulus ($G$)**.
+
+---
+
+## 📑 Detailed Description
+
+Under the guidance of **Prof. Gaurav Tiwari** (Associate Professor, Department of Civil Engineering, IIT Kanpur), this project addresses the heavy infrastructural and computational costs associated with manually determining soil microparameters. In computational geomechanics, evaluating micro-level granular behavior through physical testing or exhaustive numerical simulations requires immense time and computational energy. To eliminate these bottlenecks, our primary objective was to engineer a predictive computational framework capable of directly estimating **15 fundamental soil microparameters** using readily measurable macroscopic observables—specifically **Peak Unconfined Compressive Strength ($\text{UCS}_{\text{peak}}$)** and **Shear Modulus ($G$)**.
+
+To bypass computationally expensive high-fidelity forward runs during parameter estimation, we first constructed a surrogate metamodel using **Kriging (Gaussian Process Regression)**. By training on a dataset coupling the 15 microparameters with the 2 macroparameters, this Response Surface efficiently approximated the underlying non-linear mechanics of the soil samples. We then isolated which microparameters exerted dominant control over macro-behavior by performing **Global Sensitivity Analysis** via **Sobol** and **Borgonovo** methods. Sobol analysis quantified variance-based primary and interaction effects, while Borgonovo's density-based approach evaluated shifts across full probability distributions, enabling us to pinpoint the critical parameters governing response surface sensitivity.
+
+Finally, we formulated the inverse mapping problem using **Bayesian inversion** powered by **Markov Chain Monte Carlo (MCMC)** sampling. Instead of yielding single deterministic values, this approach predicted full **Probability Density Functions (PDFs)** for the microparameters given target macro-values. By iteratively updating likelihood weights and evaluating candidate parameter sets back against the Kriging Response Surface, we ensured that the estimated microparameters robustly validated the target macro-properties. This closed-loop, uncertainty-aware framework drastically cuts computational and material testing costs while maintaining high precision in soil characterization.
+
+---
+
+## ⚙️ Methodology & Pipeline Workflow
+
+1. **Dataset Representation:**
+   * **Inputs:** 15 Microparameters (inter-particle stiffnesses, friction coefficients, bond parameters, etc.)
+   * **Outputs:** 2 Macroparameters ($\text{UCS}_{\text{peak}}$, Shear Modulus $G$)
+
+2. **Surrogate Modeling (Kriging):**
+   * Built a Gaussian Process Kriging Response Surface to instantly project forward macro-responses from candidate microparameter sets without running costly direct simulations.
+
+3. **Global Sensitivity Analysis (GSA):**
+   * **Sobol Analysis:** Evaluates variance-based first-order and total-effect interaction indices.
+   * **Borgonovo Analysis:** Evaluates moment-independent, density-based sensitivity metrics across full output distributions.
+
+4. **Bayesian Inversion & MCMC Sampling:**
+   * Inverts the forward surrogate model to construct posterior Probability Density Functions (PDFs) of the 15 microparameters.
+   * Fine-tunes candidate parameter weights via MCMC to validate back against the original Kriging Response Surface.
+
+---
+
+## 💡 Key Highlights & Impact
+
+* **Cost & Energy Reduction:** Eliminates brute-force manual/numerical trial-and-error, lowering high-performance computing (HPC) power requirements.
+* **Uncertainty Quantification:** Replaces point estimates with full posterior probability distributions to capture soil variability.
+* **Closed-Loop Validation:** Guarantees that predicted microparameter sets reliably reproduce target macro-scale responses.
 
 ## 🗂 Repository Structure
 ```text
